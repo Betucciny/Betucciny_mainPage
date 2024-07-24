@@ -6,8 +6,10 @@ import BaseCard from "../../components/BaseCard.astro";
 import { getCollection } from "astro:content";
 import Search from "astro-pagefind/components/Search";
 import { infoTest } from "../../consts";
+import { LanguageVariant } from "typescript";
 
-export async function getStaticPaths({ paginate }) {
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
   const posts = await getCollection("blog");
   posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   return paginate(posts, { pageSize: 5 });
@@ -17,13 +19,6 @@ const { page }: { page: Page } = Astro.props;
 ---
 
 <BaseLayout PageID="blog">
-  <BaseCard title="search">
-    <Search
-      id="search"
-      className="pagefind-ui"
-      uiOptions={{ showImages: false }}
-    />
-  </BaseCard>
   <div class="envelope-background mt-8">
     {
       page.data.map((post: Post) => (
@@ -41,7 +36,7 @@ const { page }: { page: Page } = Astro.props;
     }
   </div>
   <br />
-  <div class="next-btn">
+  <div class="next-btn mb-3">
     {
       page.url.prev ? (
         <a href={page.url.prev} class="btn bg-base-100 shadow-xl">

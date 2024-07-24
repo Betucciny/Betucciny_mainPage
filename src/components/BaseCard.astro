@@ -1,7 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import License from "../components/License.astro";
-import CommentWaline from "./CommentWaline.astro";
 import dayjs from "dayjs";
 import { DATE_FORMAT } from "../consts";
 const {
@@ -43,7 +41,7 @@ const displayDate = dayjs(pubDate).format(DATE_FORMAT);
             <div class="tags">
               <code>Tag: </code>
               {tags &&
-                tags.map((tag) => (
+                tags.map((tag: unknown) => (
                   <>
                     <a
                       href={`/blog/tag/${tag}`}
@@ -61,13 +59,5 @@ const displayDate = dayjs(pubDate).format(DATE_FORMAT);
       )
     }
     <slot />
-    {
-      isBlog && (
-        <>
-          <License title={title} url={url} />
-          <CommentWaline />
-        </>
-      )
-    }
   </div>
 </div>

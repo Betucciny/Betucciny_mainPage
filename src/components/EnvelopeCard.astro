@@ -37,7 +37,7 @@ const hasTags = tags && tags.length > 0;
           <code>{infoTest.tag}</code>
           {
             hasTags ? (
-              tags.map((tag) => (
+              tags.map((tag: unknown) => (
                 <>
                   <a
                     href={`${tag_url}/${tag}`}
