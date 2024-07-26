@@ -3,11 +3,11 @@ import type { Post, Page } from "../../types";
 import EnvelopeCard from "../../components/EnvelopeCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BaseCard from "../../components/BaseCard.astro";
-import { getCollection } from "astro:content";
-import Search from "astro-pagefind/components/Search";
+import { getCollection } from "astro:content";  
 import { infoTest } from "../../consts";
 import { LanguageVariant } from "typescript";
 
+export const prerender = true;
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
   const posts = await getCollection("blog");
@@ -15,7 +15,7 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
   return paginate(posts, { pageSize: 5 });
 }
 
-const { page }: { page: Page } = Astro.props;
+const { page }: { page: Page } = Astro.props; 
 ---
 
 <BaseLayout PageID="blog">
