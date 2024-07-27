@@ -12,7 +12,7 @@ if [ $LOCAL = $REMOTE ]; then
     echo "$(date --utc +%FT%TZ): Up-to-date"
 elif [ $LOCAL = $BASE ]; then
     echo "$(date --utc +%FT%TZ): Changes detected, deploying new version..."
-    ./reload-website.sh
+    ./scripts/reload-website.sh
 elif [ $REMOTE = $BASE ]; then
     echo "$(date --utc +%FT%TZ): Local changes detected, stashing..."
     git stash
