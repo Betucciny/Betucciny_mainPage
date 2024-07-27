@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 git pull
 BUILD_VERSION=$(git rev-parse HEAD)
@@ -7,11 +7,11 @@ echo "$(date --utc +%FT%TZ): Releasing new version $BUILD_VERSION"
 
 echo "$(date --utc +%FT%TZ): Running build..."
 cd /home/betucciny/Projects
-docker context use default
 docker-compose rm -f
-docker-compose --context default build
+docker-compose build
 
 OLD_CONTAINER=$(docker ps -aqf "name=astro-app")
+echo "$OLD_CONTAINER"
 echo "$(date --utc +%FT%TZ): Scaling server up..."
 BUILD_VERSION=$BUILD_VERSION 
 docker-compose up -d --no-deps --scale astro-app=2 --no-recreate astro-app
