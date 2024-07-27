@@ -24,8 +24,8 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 
 # Set environment variables                                 
-ENV HOST=0.0.0.0
-ENV PORT=4321
+#ENV HOST=0.0.0.0
+#ENV PORT=4321
 
 # Command to run the application
 CMD ["node", "./dist/server/entry.mjs"]
