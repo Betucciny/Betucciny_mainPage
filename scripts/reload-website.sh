@@ -6,6 +6,7 @@ BUILD_VERSION=$(git rev-parse HEAD)
 echo "$(date --utc +%FT%TZ): Releasing new version $BUILD_VERSION"
 
 echo "$(date --utc +%FT%TZ): Running build..."
+cd /home/betucciny/Projects
 docker-compose rm -f
 docker-compose build
 
