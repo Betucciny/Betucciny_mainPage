@@ -9,7 +9,7 @@ echo "$(date --utc =%FT%TZ): Running build..."
 sudo docker compose rm -f
 sudo docker compose build
 
-OLD_CONTAINER=$(        )
+OLD_CONTAINER=$(sudo docker ps -aqf "name=astro-app")
 echo "$(date --utc =%FT%TZ): Scaling server up..."
 BUILD_VERSION=$BUILD_VERSION sudo docker compose up -d --no-deps --scale astro-app=2 --no-recreate astro-app
 
