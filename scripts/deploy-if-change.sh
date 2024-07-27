@@ -9,14 +9,14 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ $LOCAL = $REMOTE ]; then
-    echo "$(date --utc =%FT%TZ): Up-to-date"
+    echo "$(date --utc +%FT%TZ): Up-to-date"
 elif [ $LOCAL = $BASE ]; then
-    echo "$(date --utc =%FT%TZ): Changes detected, deploying new version..."
+    echo "$(date --utc +%FT%TZ): Changes detected, deploying new version..."
     ./reload-Website.sh
 elif [ $REMOTE = $BASE ]; then
-    echo "$(date --utc =%FT%TZ): Local changes detected, stashing..."
+    echo "$(date --utc +%FT%TZ): Local changes detected, stashing..."
     git stash
     ./reload-Website.sh
 else
-    echo "$(date --utc =%FT%TZ): Git is diverged, aborting..."
+    echo "$(date --utc +%FT%TZ): Git is diverged, aborting..."
 fi
