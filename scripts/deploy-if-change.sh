@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "$(date --utc +%FT%TZ): Fetching remote repository..."
 git fetch
