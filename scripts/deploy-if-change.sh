@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "$(date --utc =%FT%TZ): Fetching remote repository..."
+echo "$(date --utc +%FT%TZ): Fetching remote repository..."
 git fetch
 
 UPSTREAM=${1:-'@{u}'}
