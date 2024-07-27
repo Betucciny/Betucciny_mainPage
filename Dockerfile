@@ -23,7 +23,7 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 
-# Set environment variables
+# Set environment variables                                 
 ENV HOST=0.0.0.0
 ENV PORT=4321
 
