@@ -12,7 +12,8 @@ docker-compose build
 
 OLD_CONTAINER=$(docker ps -aqf "name=astro-app")
 echo "$(date --utc +%FT%TZ): Scaling server up..."
-BUILD_VERSION=$BUILD_VERSION docker-compose up -d --no-deps --scale astro-app=2 --no-recreate astro-app
+BUILD_VERSION=$BUILD_VERSION 
+docker-compose up -d --no-deps --scale astro-app=2 --no-recreate astro-app
 
 sleep 30
 
