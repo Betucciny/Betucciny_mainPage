@@ -9,7 +9,7 @@ echo "$(date --utc +%FT%TZ): Running build..."
 cd /home/betucciny/Projects
 docker context use default
 docker-compose rm -f
-docker-compose build
+docker-compose --context default build
 
 OLD_CONTAINER=$(docker ps -aqf "name=astro-app")
 echo "$(date --utc +%FT%TZ): Scaling server up..."
