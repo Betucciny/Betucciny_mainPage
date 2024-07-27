@@ -27,8 +27,5 @@ COPY --from=builder /app/package*.json ./
 ENV HOST=0.0.0.0
 ENV PORT=4321
 
-# Expose the desired port
-EXPOSE 4321
-
 # Command to run the application
 CMD ["node", "./dist/server/entry.mjs"]
