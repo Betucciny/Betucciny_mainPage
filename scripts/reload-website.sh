@@ -7,6 +7,7 @@ echo "$(date --utc +%FT%TZ): Releasing new version $BUILD_VERSION"
 
 echo "$(date --utc +%FT%TZ): Running build..."
 cd /home/betucciny/Projects
+docker context use default
 docker-compose rm -f
 docker-compose build
 
